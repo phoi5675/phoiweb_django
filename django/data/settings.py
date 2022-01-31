@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'web',
+    'webscrap',
 ]
 
 MIDDLEWARE = [
@@ -78,8 +80,16 @@ WSGI_APPLICATION = 'data.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'mydatabase',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'users',
+        'USER': 'postgres',
+        'PASSWORD': 'password',
+        'HOST': '192.168.0.30',
+        'PORT': '7000',
+    },
+    'web': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'web',
         'USER': 'postgres',
         'PASSWORD': 'password',
         'HOST': '192.168.0.30',
