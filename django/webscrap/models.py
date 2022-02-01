@@ -1,13 +1,11 @@
+# This is an auto-generated Django model module.
+# You'll have to do the following manually to clean this up:
+#   * Rearrange models' order
+#   * Make sure each model has one field with primary_key=True
+#   * Make sure each ForeignKey and OneToOneField has `on_delete` set to the desired behavior
+#   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
+# Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
-
-# Create your models here.
-class School(models.Model):
-    name = models.CharField(primary_key=True, max_length=100)
-    code = models.CharField(unique=True, max_length=10)
-
-    class Meta:
-        managed = False
-        db_table = 'school'
 
 
 class Major(models.Model):
@@ -16,8 +14,19 @@ class Major(models.Model):
     code = models.CharField(max_length=10)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'major'
+        app_label = 'webscrap'
+
+
+class School(models.Model):
+    name = models.CharField(primary_key=True, max_length=100)
+    code = models.CharField(unique=True, max_length=10)
+
+    class Meta:
+        managed = True
+        db_table = 'school'
+        app_label = 'webscrap'
 
 
 class Subscriber(models.Model):
@@ -27,8 +36,9 @@ class Subscriber(models.Model):
     major = models.CharField(max_length=50)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'subscriber'
+        app_label = 'webscrap'
 
 
 class UrlTable(models.Model):
@@ -37,5 +47,6 @@ class UrlTable(models.Model):
     additional_url = models.TextField(blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'url_table'
+        app_label = 'webscrap'
