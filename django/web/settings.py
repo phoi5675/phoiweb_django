@@ -17,6 +17,7 @@ from django.core.exceptions import ImproperlyConfigured
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_JSON = os.path.join(BASE_DIR + '/web', 'secrets.json')
+BOARD_DIR = '/boards/'
 
 with open(SECRET_JSON) as f:
     secrets = json.loads(f.read())
