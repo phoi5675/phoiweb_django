@@ -14,3 +14,8 @@ django for phoiweb
   ```shell
   docker run -d -p 8000:8000 --restart=always -v "$((Get-Item -Path '.\' -Verbose).FullName)\django:/django" --name django django
   ```
+
+- If you run dockerfile first time, uncomment
+  ```
+  # RUN python3 manage.py collectstatic
+  ```

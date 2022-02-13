@@ -1,4 +1,5 @@
 import mimetypes
+from django.core import serializers
 from django.conf import settings
 from django.http import Http404, HttpResponse 
 from PIL import Image
@@ -9,9 +10,10 @@ from .models import *
 def index(request): 
     return HttpResponse("Hello, world. You're at the webpage index.")
 
-def boards(request, board_name: str) -> HttpResponse:
-    query = Board.objects.filter(name=board_name).values()
-    return HttpResponse(query, content_type='application/json')
+def boards(request) -> HttpResponse:
+    query = Board.objects.all()
+    data = serializers.serialize('json', query)
+    return HttpResponse(data, content_type='application/json')
 
 def article_markdown(request, board: str, title: str) -> HttpResponse:
     query = Article.objects.filter(title=title).first()
