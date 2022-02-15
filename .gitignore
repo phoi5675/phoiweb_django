@@ -169,4 +169,4 @@ cython_debug/
 # secret key
 secrets.json
 
-django/static/*
+django/staticfiles/*
