@@ -16,6 +16,9 @@ class Article(models.Model):
     preview_text = models.CharField(max_length=200, blank=True, null=True)
     date = models.DateTimeField()
 
+    def __str__(self): 
+        return f'{self.id}|{self.title}|{self.file_name}|{self.board_name}'
+
     class Meta:
         managed = True
         db_table = 'article'
@@ -26,6 +29,9 @@ class Board(models.Model):
     name = models.TextField(primary_key=True)
     storage_path = models.TextField(unique=True)
 
+    def __str__(self) -> str:
+        return f'{self.id}|{self.name}|{self.storage_path}'
+        
     class Meta:
         managed = True
         db_table = 'board'
